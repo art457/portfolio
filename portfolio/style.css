@@ -1,0 +1,216 @@
+
+/* ===== ОСНОВА ===== */
+
+body{
+    margin:0;
+    font-family: "Courier New", monospace;
+    background:#ffd6f3;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== LOADER ===== */
+
+
+
+/* ===== СЦЕНА ===== */
+
+.scene{
+    position:relative;
+    min-height:100vh;
+
+    /* верх — закат */
+    background:
+        url("sunset.jpg") top center/100% 30% no-repeat,
+        #ffd6f3;
+}
+
+/* ===== 3D GRID (70% экрана) ===== */
+
+.scene::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:70%;
+
+    background:
+        linear-gradient(#30d5c8 5px, transparent 1px),
+        linear-gradient(90deg,#30d5c8 5px, transparent 1px);
+
+    background-size:70px 70px;
+
+    transform:perspective(600px) rotateX(65deg);
+    transform-origin:bottom;
+
+    animation:gridmove 8s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes gridmove{
+    from{ background-position:0 0; }
+    to{ background-position:0 140px; }
+}
+
+/* ===== HEADER ===== */
+
+header{
+    text-align:center;
+    padding-top:40px;
+    text-shadow:0 0 10px #ff9cf5, 0 0 20px #ff9cf5;
+}
+
+header h1{
+    margin:0;
+    font-size:48px;
+    letter-spacing:6px;
+}
+
+header p{
+    margin:10px 0 0 0;
+    color:#ffe6fa;
+}
+
+/* ===== МЕНЮ ===== */
+
+.menu{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    border:2px solid #ff8de1;
+    padding:12px 24px;
+    transition:0.25s;
+    background:rgba(255,255,255,0.05);
+}
+
+.menu a:hover{
+    background:#ff8de1;
+    color:white;
+    box-shadow:
+        0 0 10px #ff8de1,
+        0 0 25px #ff8de1,
+        0 0 50px #ff8de1;
+    transform:translateY(-3px);
+}
+
+/* ===== ГЛАВНАЯ GIF ===== */
+
+.gif{
+    position:absolute;
+    bottom:120px;
+    width:100%;
+    text-align:center;
+}
+
+.gif img{
+    height:230px;
+    filter:drop-shadow(0 0 20px #ff8de1);
+}
+
+/* ===== СТРАНИЦЫ ===== */
+
+.content{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:70px;
+    margin-top:90px;
+    padding:20px;
+    flex-wrap:wrap;
+}
+
+/* гифка страницы */
+
+.pagegif{
+    height:260px;
+    filter:
+        drop-shadow(0 0 20px #ff8de1)
+        drop-shadow(0 0 40px #ff8de1);
+}
+
+/* текстовый блок */
+
+.textblock{
+    background:rgba(0,0,0,0.35);
+    padding:30px;
+    border:2px solid #ff8de1;
+    box-shadow:
+        0 0 15px #ff8de1,
+        inset 0 0 20px rgba(255,255,255,0.08);
+    max-width:440px;
+    backdrop-filter:blur(3px);
+}
+
+.textblock h2{
+    margin-top:0;
+    color:#ffd6f3;
+    text-shadow:0 0 10px #ff9cf5;
+}
+
+.textblock p,
+.textblock li{
+    line-height:1.6;
+}
+
+/* список */
+
+.textblock ul{
+    padding-left:18px;
+}
+
+/* ===== СКРОЛЛ ===== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#1a001f;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ff8de1;
+    box-shadow:0 0 10px #ff8de1;
+}
+
+css id="music_fix_css"
+.enter-screen{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+#enterBtn{
+    font-size:28px;
+    padding:20px 40px;
+    background:black;
+    color:#ff8de1;
+    border:2px solid #ff8de1;
+    cursor:pointer;
+    letter-spacing:4px;
+}
+
+#enterBtn:hover{
+    background:#ff8de1;
+    color:black;
+    box-shadow:0 0 25px #ff8de1;
+}
+
+.hidden{
+    display:none;
+}
+
+
